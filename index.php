@@ -131,8 +131,7 @@
               <?php } ?>
           </div>
       </div>
-    </div>
-    <!--.contenedor-video-->
+    </div><!--.contenedor-video-->
 
     <div class="contenido-programa">
       <div class="contenedor">
