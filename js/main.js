@@ -1,35 +1,34 @@
-var api = 'AIzaSyCeSzprwFmUOSsAIf36sT9hONLvf3ReD_4';
+//var api = 'AIzaSyCeSzprwFmUOSsAIf36sT9hONLvf3ReD_4';
 
-function initMap() {
-  var latLng = {
-    lat: 20.6772885,
-    Ing:-103.3856328
-  };
+//function initMap() {
+//  var latLng = {
+//    lat: 20.6772885,
+//    Ing:-103.3856328
+//  };
 
-  var map = new google.maps.Map(document.getElementById('mapa'), {
-    'center': latLng,
-    'zoom': 14,
-    'mapTypeId': google.maps.MapTypeId.ROADMAP
-  });
+//  var map = new google.maps.Map(document.getElementById('mapa'), {
+//    'center': latLng,
+//    'zoom': 14,
+//    'mapTypeId': google.maps.MapTypeId.ROADMAP
+//  });
 
-  var contenido = '<h2>GDLWEBCAMP</h2>'+
-                  '<p>Del 10 al 12 de Diciembre</p>'+
-                  '<p>Visitanos!</p>';
+//  var contenido = '<h2>GDLWEBCAMP</h2>'+
+//                  '<p>Del 10 al 12 de Diciembre</p>'+
+//                  '<p>Visitanos!</p>';
   
-  var informacion = new google.maps.InfoWindow({
-    content: contenido
-  });
+//  var informacion = new google.maps.InfoWindow({
+//    content: contenido
+//  });
+//  var marker = new google.maps.Marker({
+//  position:lating,
+//  map: map,
+//  title: 'GDLWEBCA
+// });
 
-  var marker = new google.maps.Marker({
-    position:lating,
-    map: map,
-    title: 'GDLWEBCAMP'
-  });
-
-  marker.addListener('click', function(){
-    informacion.open(map, marker);
-  });
-}
+//  marker.addListener('click', function(){
+//    informacion.open(map, marker);
+//  });
+//}
 
 (function () {
   "use strict";
@@ -182,12 +181,13 @@ function initMap() {
 })();
 
 
+// PARTE EDITADA POR MELANIE
 $(function() {
 
   // Programa de Conferencias
   $('.programa-evento .info-curso:first').show();
   $('.menu-programa a:first').addClass('activo');
-  
+
   $('.menu-programa a').on('click', function() {
     $('.menu-programa a').removeClass('activo');
     $(this).addClass('activo');
@@ -197,3 +197,4 @@ $(function() {
     return false;
   });
 });
+// PARTE EDITADA POR MELANIE

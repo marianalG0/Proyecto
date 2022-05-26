@@ -67,7 +67,7 @@
   <div class="barra">
     <div class="contenedor clearfix">
       <div class="logo">
-        <img src="img/logo.svg" alt=" logo gdlwebcamp" srcset="" />
+      <a href="index.php"><img src="img/logo.svg" alt=" logo gdlwebcamp" srcset="" /></a>
       </div>
 
       <div class="menu-movil">
@@ -99,81 +99,82 @@
   </section>
   <!--.seccion-->
 
+  <!--PARTE EDITADA POR MELANIE-->
   <section class="programa">
-    <div class="contenedor-video">
-      <video autoplay loop muted>
-        <source src="video/video.mp4" type="video/mp4" />
-        <source src="video/video.webm" type="video/webm" />
-        <source src="video/video.ogv" type="video/ogg" />
-      </video>
-    </div>
-    <!--.contenedor-video-->
-
-    <div class="contenido-programa">
-      <div class="contenedor">
-        <div class="programa-evento">
-          <h2>Programa del evento</h2>
-          <nav class="menu-programa">
-            <a href="#talleres"><i class="fa fa-code"></i>Talleres</a>
-            <a href="#conferencias"><i class="fa fa-comment"></i>Conferencias</a>
-            <a href="#seminarios"><i class="fa fa-university"></i>Seminarios</a>
-          </nav>
-          <div id="talleres" class="info-curso ocultar clearfix">
-            <div class="detalle-evento">
-              <h3>HTML5, CSS3 y JavaScript</h3>
-              <p><i class="fa-regular fa-clock"></i>16:00 hrs</p>
-              <p><i class="fa fa-calendar"></i>10 de Dic</p>
-              <p><i class="fa fa-user"></i> Juan Pablo De la torre Valdez</p>
-            </div>
-
-            <div class="detalle-evento">
-              <h3>Responsive Web Desing</h3>
-              <p><i class="fa-regular fa-clock"></i>20:00 hrs</p>
-              <p><i class="fa fa-calendar"></i>10 de Dic</p>
-              <p><i class="fa fa-user"></i> Juan Pablo De la torre Valdez</p>
-            </div>
-            <a href="#" class="button float-right"> Ver todos</a>
-          </div><!--#talleres-->
-          <div id="conferencias" class="info-curso ocultar clearfix">
-            <div class="detalle-evento">
-              <h3>Como ser freelancer</h3>
-              <p><i class="fa-regular fa-clock"></i>10:00 hrs</p>
-              <p><i class="fa fa-calendar"></i>10 de Dic</p>
-              <p><i class="fa fa-user"></i> Gregorio Sanchez</p>
-            </div>
-
-            <div class="detalle-evento">
-              <h3>Tecnologias del Futuro</h3>
-              <p><i class="fa-regular fa-clock"></i>17:00 hrs</p>
-              <p><i class="fa fa-calendar"></i>10 de Dic</p>
-              <p><i class="fa fa-user"></i> Susan Sanchez</p>
-            </div>
-            <a href="#" class="button float-right"> Ver todos</a>
-          </div><!--#talleres-->
-          <div id="seminarios" class="info-curso ocultar clearfix">
-            <div class="detalle-evento">
-              <h3>Diseño UI/UX para moviles</h3>
-              <p><i class="fa-regular fa-clock"></i>17:00 hrs</p>
-              <p><i class="fa fa-calendar"></i>11 de Dic</p>
-              <p><i class="fa fa-user"></i> Harlod Garcia</p>
-            </div>
-
-            <div class="detalle-evento">
-              <h3>Aprende a programar en una mañana</h3>
-              <p><i class="fa-regular fa-clock"></i>10:00 hrs</p>
-              <p><i class="fa fa-calendar"></i>11 de Dic</p>
-              <p><i class="fa fa-user"></i> Susana Rivera</p>
-            </div>
-            <a href="#" class="button float-right"> Ver todos</a>
-          </div><!--#talleres-->
-        </div>
-        <!--.programa-evento-->
+      <div class="contenedor-video">
+        
+        <div class="slider">
+          <?php
+              $ids = array(1,2,3,4,5);
+              $alt = array(
+                  "Slide 1",
+                  "Slide 2",
+                  "Slide 3",
+                  "Slide 4",
+                  "Slide 5"
+              );
+              $max = count($ids);
+              for($s=0;$s<$max;$s++){ ?>
+                  <input type="radio" id="<?= $ids[$s]; ?>" name="image-slide" hidden />
+              <?php }
+          ?>
+          <div class="slideshow">
+              <?php for($s=0;$s<$max;$s++){ ?>
+              <div class="item-slide">
+                  <img src="img/<?= $ids[$s]; ?>.jpg" alt="<?= $alt[$s]; ?>" />
+              </div>
+              <?php } ?>
+          </div>
+          <div class="pagination">
+              <?php for($s=0;$s<$max;$s++){ ?>
+              <label class="pag-item" for="<?= $ids[$s]; ?>">
+                  <img src="img/<?= $ids[$s]; ?>.jpg" alt="<?= $alt[$s]; ?>" />
+              </label>
+              <?php } ?>
+          </div>
       </div>
-      <!--.contenedor-->
-    </div>
-    <!--.contenido-programa-->
-  </section>
-  <!--.programa-->
+      </div>
+      <!--.contenedor-video-->
+      <div class="contenido-programa">
+        <div class="contenedor">
+          <div class="programa-evento">
+            <h2>Programa del evento</h2>
+            <nav class="menu-programa">
+              <a href="#talleres"><i class="fa fa-code"></i>Talleres</a>
+              <a href="#conferencias"
+                ><i class="fa fa-comment"></i>Conferencias</a
+              >
+              <a href="#seminarios"
+                ><i class="fa fa-university"></i>Seminarios</a
+              >
+            </nav>
+            <div id="talleres" class="info-curso ocultar clearfix">
+              <div class="detalle-evento">
+                <h3>HTML5, CSS3 y JavaScript</h3>
+                <p><i class="fa-regular fa-clock"></i>16:00 hrs</p>
+                <p><i class="fa fa-calendar"></i>10 de Dic</p>
+                <p><i class="fa fa-user"></i> Juan Pablo De la torre Valdez</p>
+              </div>
+
+              <div class="detalle-evento">
+                <h3>Responsive Web Desing</h3>
+                <p><i class="fa-regular fa-clock"></i>20:00 hrs</p>
+                <p><i class="fa fa-calendar"></i>10 de Dic</p>
+                <p><i class="fa fa-user"></i> Juan Pablo De la torre Valdez</p>
+              </div>
+              <a href="#" class="button float-right"> Ver todos</a>
+            </div>
+            <!--#talleres-->
+          </div>
+          <!--.programa-evento-->
+        </div>
+        <!--.contenedor-->
+      </div>
+      <!--.contenido-programa-->
+    </section>
+    <!--.programa-->
+    <!--PARTE EDITADA POR MELANIE-->
+
 
   <section class="invitados contenedor">
     <h2>Nuestros Invitados</h2>
@@ -414,6 +415,7 @@
 
   </script>
   <script src="js/plugins.js"></script>
+  <script src="js/mapa.js"></script>
   <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
   integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
   crossorigin=""></script>
