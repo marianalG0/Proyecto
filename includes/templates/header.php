@@ -17,13 +17,23 @@
     integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
     crossorigin="" />
 
+    <?php
+        $archivo = basename($_SERVER['PHP_SELF']);
+        $pagina = str_replace(".php", "", $archivo);
+        if($pagina == 'invitados' || $pagina == 'index'){
+            echo '<link rel="stylesheet" href="css/colorbox.css"/>'; //<!-- Part editada alma video2folder70 -->
+        } else if($pagina == 'conferencia'){
+            echo '<link rel="stylesheet" href="css/lightbox.css"/>';
+        }
+    ?>
+
   <link href="https://fonts.googleapis.com/css?family=Open+Sans|Oswald|PT+Sans" rel="stylesheet" />
   <link rel="stylesheet" href="css/main.css" />
 
   <meta name="theme-color" content="#fafafa" />
 </head>
 
-<body>
+<body class="<?php echo $pagina; ?>">
   <!--[if IE]>
       <p class="browserupgrade">
         You are using an <strong>outdated</strong> browser. Please
@@ -79,7 +89,7 @@
       <nav class="navegacion-principal clearfix">
         <a href="conferencia.php">Conferencia</a>
         <a href="calendario.php">Calendario</a> <!--ASCC modificacion de url-->
-        <a href="#">Invitados</a>
+        <a href="invitados.php">Invitados</a>
         <a href="registro.php">Reservaciones</a>
       </nav>
     </div>

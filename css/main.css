@@ -929,7 +929,7 @@ p.copryright{
 
 /** INTERNAS (Editado por Mariana*/ 
 /* CONFERENCIA -Editado por melanie*/ 
-body.conferencia .navegacion-principal .activo {
+.navegacion-principal .activo { /**Editado por ASCC video6folder70**/
   border-bottom: 2px solid #fe4918;
 }
 div.galeria a{
@@ -1110,6 +1110,12 @@ div.dia p{
 div.dia i{
   color: #fe4918;
   font-size: 1.3em;
+}
+/** Colorbox parte anexada x ASCC video3folder70**/
+
+div.cboxElement{
+  padding: 30px!important;
+  text-align: center;
 }
 
 /* ==========================================================================

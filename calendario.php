@@ -19,8 +19,6 @@
       } catch (\Exception $e){
           echo $e->getMessage();
       }
-
-
       ?>
 
       <div class="calendario">
