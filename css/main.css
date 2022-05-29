@@ -408,6 +408,7 @@ div.contenedor-video{
 }
 /** PARTE EDITADA POR MELANIE **/
 /**Aqui empieza el slider**/
+
 .slider{
   max-width: 100%;
   display: flex;
@@ -520,9 +521,6 @@ input[id="5"]:checked ~ .pagination .pag-item[for="5"]{
 }
 /**Aqui termina el slider**/
 /** PARTE EDITADA POR MELANIE**/
-
-
-
 
 div.contenido-programa{
   position: absolute;

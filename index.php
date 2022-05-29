@@ -1,5 +1,6 @@
 <?php include_once 'includes/templates/header.php'; ?>
  <section class="seccion contenedor">
+
     <h2>La mejor conferencia de diseño web en español</h2>
     <p>
       Duis sit amet facilisis erat. Etiam metus lorem, tristique eget massa
@@ -11,11 +12,13 @@
   </section>
   <!--.seccion-->
 
+
   <!--PARTE EDITADA POR MELANIE-->
   <section class="programa">
       <div class="contenedor-video">
         
         <div class="slider">
+
           <?php
               $ids = array(1,2,3,4,5);
               $alt = array(
@@ -292,22 +295,27 @@
     <div class="cuenta-regresiva contenedor">
       <ul class="clearfix">
         <li>
+
           <p id="dias" class="numero"></p>
           días
         </li>
 
         <li>
+
           <p id="horas" class="numero"></p>
           horas
         </li>
 
         <li>
           <p id="minutos" class="numero"></p>
+
           minutos
         </li>
         <li>
 
+
           <p id="segundos" class="numero"></p>
+
           segundos
         </li>
       </ul>
