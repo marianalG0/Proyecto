@@ -1,9 +1,11 @@
+
 <?php
 
 use LDAP\Result;
 
  include_once 'includes/templates/header.php'; ?>
  <section class="seccion contenedor">
+
     <h2>La mejor conferencia de diseño web en español</h2>
     <p>
       Duis sit amet facilisis erat. Etiam metus lorem, tristique eget massa
@@ -15,11 +17,13 @@ use LDAP\Result;
   </section>
   <!--.seccion-->
 
+
   <!--PARTE EDITADA POR MELANIE-->
   <section class="programa">
       <div class="contenedor-video">
         
         <div class="slider">
+
           <?php
               $ids = array(1,2,3,4,5);
               $alt = array(
@@ -54,6 +58,7 @@ use LDAP\Result;
       <div class="contenido-programa">
         <div class="contenedor">
           <div class="programa-evento">
+
             <h2>Programa del evento</h2> <!-- IniciaModificacion ASCC video1folder71 -->
             <?php
                 try{
@@ -144,7 +149,6 @@ use LDAP\Result;
     </section>
     <!--.programa-->
     <!--PARTE EDITADA POR MELANIE-->
-
 
     <?php include_once 'includes/templates/invitados.php'; ?> <!-- incluido por ASSC video5folder70 -->
 
@@ -278,25 +282,32 @@ use LDAP\Result;
     <div class="cuenta-regresiva contenedor">
       <ul class="clearfix">
         <li>
+
           <p id="dias" class="numero"></p>
           días
         </li>
 
         <li>
+
           <p id="horas" class="numero"></p>
           horas
         </li>
 
         <li>
           <p id="minutos" class="numero"></p>
+
           minutos
         </li>
         <li>
 
+
           <p id="segundos" class="numero"></p>
+
           segundos
         </li>
       </ul>
     </div>
   </section>
+
   <?php include_once 'includes/templates/footer.php'; ?>
+

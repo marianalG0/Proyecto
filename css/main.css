@@ -521,9 +521,6 @@ input[id="5"]:checked ~ .pagination .pag-item[for="5"]{
 /**Aqui termina el slider**/
 /** PARTE EDITADA POR MELANIE**/
 
-
-
-
 div.contenido-programa{
   position: absolute;
   top: 0;
@@ -929,7 +926,9 @@ p.copryright{
 
 /** INTERNAS (Editado por Mariana*/ 
 /* CONFERENCIA -Editado por melanie*/ 
+
 .navegacion-principal .activo { /**Editado por ASCC video6folder70**/
+
   border-bottom: 2px solid #fe4918;
 }
 div.galeria a{
