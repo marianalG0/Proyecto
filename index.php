@@ -88,21 +88,27 @@
               <p><i class="fa fa-user"></i> Gregorio Sanchez</p>
             </div>
 
-            <div class="detalle-evento">
-              <h3>Tecnologias del Futuro</h3>
-              <p><i class="fa-regular fa-clock"></i>17:00 hrs</p>
-              <p><i class="fa fa-calendar"></i>10 de Dic</p>
-              <p><i class="fa fa-user"></i> Susan Sanchez</p>
-            </div>
-            <a href="#" class="button float-right"> Ver todos</a>
-          </div><!--#talleres-->
-          <div id="seminarios" class="info-curso ocultar clearfix">
-            <div class="detalle-evento">
-              <h3>Diseño UI/UX para moviles</h3>
-              <p><i class="fa-regular fa-clock"></i>17:00 hrs</p>
-              <p><i class="fa fa-calendar"></i>11 de Dic</p>
-              <p><i class="fa fa-user"></i> Harlod Garcia</p>
-            </div>
+                  <?php $i = 0; ?>
+                  <?php foreach($row as $evento): ?>
+                    <?php if($i % 2 == 0){ ?>
+                   <div id="<?php echo strtolower($evento['cat_evento']) ?>" class="info-curso ocultar clearfix" > 
+                    <?php } ?>
+                    <div class="detalle-evento">
+                      <h3><?php echo ($evento['nombre_evento']) ?></h3>
+                      <p><i class="fa-regular fa-clock" aria-hidden="true"></i> <?php echo $evento['hora_evento'] ?> </p>
+                      <p><i class="fa fa-calendar" aria-hidden="true"></i> <?php echo $evento['fecha_evento'] ?> </p>
+                      <p><i class="fa fa-user" aria-hidden="true"></i> <?php echo $evento['nombre_invitado'] . " " . $evento['apellido_invitado']; ?> </p>
+                    </div>
+                      
+                    <?php if($i % 2 == 1): ?>
+                    <a href="calendario.php" class="button float-right">Ver todos</a>
+                    </div><!--#talleres-->
+                  <?php endif; ?>
+                  <?php $i++; ?>
+                  <?php endforeach; ?>
+                  <?php $resultado->free(); ?>
+          <?php      } while ($conn->more_results() && $conn->next_result()); ?>
+
 
             <div class="detalle-evento">
               <h3>Aprende a programar en una mañana</h3>
