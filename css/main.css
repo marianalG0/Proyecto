@@ -408,6 +408,7 @@ div.contenedor-video{
 }
 /** PARTE EDITADA POR MELANIE **/
 /**Aqui empieza el slider**/
+
 .slider{
   max-width: 100%;
   display: flex;
@@ -926,9 +927,7 @@ p.copryright{
 
 /** INTERNAS (Editado por Mariana*/ 
 /* CONFERENCIA -Editado por melanie*/ 
-
-.navegacion-principal .activo { /**Editado por ASCC video6folder70**/
-
+body.conferencia .navegacion-principal .activo {
   border-bottom: 2px solid #fe4918;
 }
 div.galeria a{
@@ -1066,55 +1065,6 @@ input[disabled] .button{
   padding: 20px;
   text-align: center;
   display: none;
-}
-/** Calendario - Aquí empieza a escribir Alma **/
-div.calendario h3{
-  background-color: #fe4918;
-  clear: both;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-}
-div.calendario::after{
-  clear: both;
-  display: block;
-  content: '';
-}
-div.dia {
-  width: 50%;
-  float: left;
-  border: 2px solid #e1e1e1;
-  transition: all .3s ease;
-  min-height: 230px;
-}
-@media only screen and (min-width:768px){
-  div.dia{
-    width: 33.3%;
-    min-height: 250px;
-    padding-top: 20px;
-  }
-}
-div.dia:hover{
-  background-color: #e1e1e1;
-  -webkit-transform: scale(1.1);
-}
-div.dia p.titulo{
-  color: #fe4918;
-  text-transform: uppercase;
-  font-weight: bold;
-}
-div.dia p{
-  font-size: 1em;
-}
-div.dia i{
-  color: #fe4918;
-  font-size: 1.3em;
-}
-/** Colorbox parte anexada x ASCC video3folder70**/
-
-div.cboxElement{
-  padding: 30px!important;
-  text-align: center;
 }
 
 /* ==========================================================================

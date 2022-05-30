@@ -1,9 +1,4 @@
-
-<?php
-
-use LDAP\Result;
-
- include_once 'includes/templates/header.php'; ?>
+<?php include_once 'includes/templates/header.php'; ?>
  <section class="seccion contenedor">
 
     <h2>La mejor conferencia de diseño web en español</h2>
@@ -58,88 +53,65 @@ use LDAP\Result;
       <div class="contenido-programa">
         <div class="contenedor">
           <div class="programa-evento">
-
-            <h2>Programa del evento</h2> <!-- IniciaModificacion ASCC video1folder71 -->
-            <?php
-                try{
-                  require_once('includes/funciones/bd_conexion.php');
-                  $sql = " SELECT * FROM `categoria_evento` ";
-                  $resultado = $conn->query($sql);
-                } catch (\Exception $e){
-                    echo $e->getMessage();
-                }
-            ?>
+            <h2>Programa del evento</h2>
             <nav class="menu-programa">
-              <?php while($cat = $resultado->fetch_array(MYSQLI_ASSOC)) { ?>
-                <?php $categoria = $cat['cat_evento']; ?>
-              <a href="#<?php echo strtolower($categoria) ?>">
-                  <i class="fa <?php echo $cat['icono'] ?>"></i> <?php echo $categoria ?> </a>
-              <?php } ?>
+              <a href="#talleres"><i class="fa fa-code"></i>Talleres</a>
+              <a href="#conferencias"
+                ><i class="fa fa-comment"></i>Conferencias</a
+              >
+              <a href="#seminarios"
+                ><i class="fa fa-university"></i>Seminarios</a
+              >
             </nav>
+            <div id="talleres" class="info-curso ocultar clearfix">
+              <div class="detalle-evento">
+                <h3>HTML5, CSS3 y JavaScript</h3>
+                <p><i class="fa-regular fa-clock"></i>16:00 hrs</p>
+                <p><i class="fa fa-calendar"></i>10 de Dic</p>
+                <p><i class="fa fa-user"></i> Juan Pablo De la torre Valdez</p>
+              </div>
 
-            <?php
-                  try{
-                    require_once('includes/funciones/bd_conexion.php');
-                    $sql = " SELECT evento_id, nombre_evento, fecha_evento, hora_evento, cat_evento, icono, nombre_invitado, apellido_invitado ";
-                    $sql .= " FROM eventos ";
-                    $sql .= " INNER JOIN categoria_evento ";
-                    $sql .= " ON eventos.id_cat_evento = categoria_evento.id_categoria ";
-                    $sql .= " INNER JOIN invitados ";
-                    $sql .= " ON eventos.id_inv = invitados.invitado_id";
-                    $sql .= " AND eventos.id_cat_evento = 1 ";
-                    $sql .= " ORDER BY evento_id LIMIT 2; ";
-                    $sql .= " SELECT evento_id, nombre_evento, fecha_evento, hora_evento, cat_evento, icono, nombre_invitado, apellido_invitado ";
-                    $sql .= " FROM eventos ";
-                    $sql .= " INNER JOIN categoria_evento ";
-                    $sql .= " ON eventos.id_cat_evento = categoria_evento.id_categoria ";
-                    $sql .= " INNER JOIN invitados ";
-                    $sql .= " ON eventos.id_inv = invitados.invitado_id";
-                    $sql .= " AND eventos.id_cat_evento = 2 ";
-                    $sql .= " ORDER BY evento_id LIMIT 2; ";
-                    $sql .= " SELECT evento_id, nombre_evento, fecha_evento, hora_evento, cat_evento, icono, nombre_invitado, apellido_invitado ";
-                    $sql .= " FROM eventos ";
-                    $sql .= " INNER JOIN categoria_evento ";
-                    $sql .= " ON eventos.id_cat_evento = categoria_evento.id_categoria ";
-                    $sql .= " INNER JOIN invitados ";
-                    $sql .= " ON eventos.id_inv = invitados.invitado_id";
-                    $sql .= " AND eventos.id_cat_evento = 3 ";
-                    $sql .= " ORDER BY evento_id LIMIT 2; ";
-                    $resultado = $conn->query($sql);
-                  } catch (\Exception $e){
-                      $error = $e->getMessage();
-                  }
-            ?>
+              <div class="detalle-evento">
+                <h3>Responsive Web Desing</h3>
+                <p><i class="fa-regular fa-clock"></i>20:00 hrs</p>
+                <p><i class="fa fa-calendar"></i>10 de Dic</p>
+                <p><i class="fa fa-user"></i> Juan Pablo De la torre Valdez</p>
+              </div>
+              <a href="#" class="button float-right"> Ver todos</a>
+            </div>
+            <!--#talleres-->
+            <div id="conferencias" class="info-curso ocultar clearfix">
+            <div class="detalle-evento">
+              <h3>Como ser freelancer</h3>
+              <p><i class="fa-regular fa-clock"></i>10:00 hrs</p>
+              <p><i class="fa fa-calendar"></i>10 de Dic</p>
+              <p><i class="fa fa-user"></i> Gregorio Sanchez</p>
+            </div>
 
-            <?php $conn->multi_query($sql); ?>
+            <div class="detalle-evento">
+              <h3>Tecnologias del Futuro</h3>
+              <p><i class="fa-regular fa-clock"></i>17:00 hrs</p>
+              <p><i class="fa fa-calendar"></i>10 de Dic</p>
+              <p><i class="fa fa-user"></i> Susan Sanchez</p>
+            </div>
+            <a href="#" class="button float-right"> Ver todos</a>
+          </div><!--#talleres-->
+          <div id="seminarios" class="info-curso ocultar clearfix">
+            <div class="detalle-evento">
+              <h3>Diseño UI/UX para moviles</h3>
+              <p><i class="fa-regular fa-clock"></i>17:00 hrs</p>
+              <p><i class="fa fa-calendar"></i>11 de Dic</p>
+              <p><i class="fa fa-user"></i> Harlod Garcia</p>
+            </div>
 
-            <?php 
-                do {
-                  $resultado = $conn->store_result();
-                  $row = $resultado->fetch_all(MYSQLI_ASSOC);   ?>
-
-                  <?php $i = 0; ?>
-                  <?php foreach($row as $evento): ?>
-                    <?php if($i % 2 == 0){ ?>
-                   <div id="<?php echo strtolower($evento['cat_evento']) ?>" class="info-curso ocultar clearfix" > 
-                    <?php } ?>
-                    <div class="detalle-evento">
-                      <h3><?php echo utf8_encode($evento['nombre_evento']) ?></h3>
-                      <p><i class="fa-regular fa-clock" aria-hidden="true"></i> <?php echo $evento['hora_evento'] ?> </p>
-                      <p><i class="fa fa-calendar" aria-hidden="true"></i> <?php echo $evento['fecha_evento'] ?> </p>
-                      <p><i class="fa fa-user" aria-hidden="true"></i> <?php echo $evento['nombre_invitado'] . " " . $evento['apellido_invitado']; ?> </p>
-                    </div>
-                      
-                    <?php if($i % 2 == 1): ?>
-                    <a href="calendario.php" class="button float-right">Ver todos</a>
-                    </div><!--#talleres-->
-                  <?php endif; ?>
-                  <?php $i++; ?>
-                  <?php endforeach; ?>
-                  <?php $resultado->free(); ?>
-          <?php      } while ($conn->more_results() && $conn->next_result()); ?>
-
-  
-          
+            <div class="detalle-evento">
+              <h3>Aprende a programar en una mañana</h3>
+              <p><i class="fa-regular fa-clock"></i>10:00 hrs</p>
+              <p><i class="fa fa-calendar"></i>11 de Dic</p>
+              <p><i class="fa fa-user"></i> Susana Rivera</p>
+            </div>
+            <a href="#" class="button float-right"> Ver todos</a>
+          </div><!--#talleres-->
          </div>
           <!--.programa-evento-->
         </div>
@@ -150,7 +122,48 @@ use LDAP\Result;
     <!--.programa-->
     <!--PARTE EDITADA POR MELANIE-->
 
-    <?php include_once 'includes/templates/invitados.php'; ?> <!-- incluido por ASSC video5folder70 -->
+
+  <section class="invitados contenedor">
+    <h2>Nuestros Invitados</h2>
+    <ul class="lista-invitados clearfix">
+      <li>
+        <div class="invitado">
+          <img src="img/invitado1.jpg" alt="Imagen invitado" />
+          <p>Rafael Bautista</p>
+        </div>
+      </li>
+      <li>
+        <div class="invitado">
+          <img src="img/invitado2.jpg" alt="Imagen invitado" />
+          <p>Shari Herrera</p>
+        </div>
+      </li>
+      <li>
+        <div class="invitado">
+          <img src="img/invitado3.jpg" alt="Imagen invitado" />
+          <p>Gregorio Sanchez</p>
+        </div>
+      </li>
+      <li>
+        <div class="invitado">
+          <img src="img/invitado4.jpg" alt="Imagen invitado" />
+          <p>Susana Rivera</p>
+        </div>
+      </li>
+      <li>
+        <div class="invitado">
+          <img src="img/invitado5.jpg" alt="Imagen invitado" />
+          <p>Harold Garcia</p>
+        </div>
+      </li>
+      <li>
+        <div class="invitado">
+          <img src="img/invitado6.jpg" alt="Imagen invitado" />
+          <p>Susan Sanchez</p>
+        </div>
+      </li>
+    </ul>
+  </section>
 
   <div class="contador parallax">
     <!--PARALLAX ES UN EFECTO-->
@@ -308,6 +321,4 @@ use LDAP\Result;
       </ul>
     </div>
   </section>
-
   <?php include_once 'includes/templates/footer.php'; ?>
-
