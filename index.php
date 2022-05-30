@@ -123,7 +123,7 @@ use LDAP\Result;
                    <div id="<?php echo strtolower($evento['cat_evento']) ?>" class="info-curso ocultar clearfix" > 
                     <?php } ?>
                     <div class="detalle-evento">
-                      <h3><?php echo utf8_encode($evento['nombre_evento']) ?></h3>
+                      <h3><?php echo ($evento['nombre_evento']) ?></h3>
                       <p><i class="fa-regular fa-clock" aria-hidden="true"></i> <?php echo $evento['hora_evento'] ?> </p>
                       <p><i class="fa fa-calendar" aria-hidden="true"></i> <?php echo $evento['fecha_evento'] ?> </p>
                       <p><i class="fa fa-user" aria-hidden="true"></i> <?php echo $evento['nombre_invitado'] . " " . $evento['apellido_invitado']; ?> </p>
