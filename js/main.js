@@ -67,9 +67,6 @@
     var camisas = document.getElementById('camisa_evento');
     var etiquetas = document.getElementById('etiquetas');
 
-    //Inicia modif ASCC video3folder72
-    botonRegistro.disabled= true;
-
     if(document.getElementById('calcular')) {
 
     calcular.addEventListener('click', calcularMontos);
@@ -152,10 +149,6 @@
         //Mostrar el total
         suma.innerHTML = "$ " + totalPagar.toFixed(2); //Con toFixed recortamos y mostramos solo 2 decimales
 
-        //Inicia modif ASCC video3folder72
-         botonRegistro.disabled = false;
-         document.getElementById('total_pedido').value = totalPagar;
-
       }
     }
 
@@ -196,11 +189,6 @@ $(function() {
 
   // Aplicando lettering
   $('.nombre-sitio').lettering();
-
-  // Agregar clase a Menú   Empieza modificacions ASCC video6folder70
-  $('body.conferencia .navegacion-principal a:contains("Conferencia")').addClass('activo');
-  $('body.calendario .navegacion-principal a:contains("Calendario")').addClass('activo');
-  $('body.invitados .navegacion-principal a:contains("Invitados")').addClass('activo');
 
   // Menu fijo
   var windowHeight = $(window).height();
@@ -262,8 +250,5 @@ $(function() {
   });
 
   // Colorbox
-
-  $('.invitado-info').colorbox({inline:true, width:"50%"});//Parte agregada por alma video2folder70
-
 });
 // PARTE EDITADA POR MELANIE
