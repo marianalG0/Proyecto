@@ -55,7 +55,7 @@
                     //Windows
                     setlocale(LC_TIME, 'spanish');
                     
-                    echo strftime( "%A, %d de %B del %Y", strtotime($dia)); ?>
+                    echo date("F j, Y", strtotime($dia)); ?>
                 </h3>
                 <?php foreach($lista_eventos as $evento) {?>
                     <div class="dia">
