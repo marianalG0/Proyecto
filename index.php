@@ -271,7 +271,7 @@ use LDAP\Result;
     <div class="contenido contenedor">
       <p> regístrate al newsletter:</p>
       <h3>gdlwebcamp</h3>
-      <a href="#" class="button transparente">Registro</a>
+      <a href="#mc_embed_signup" class="btn_newsletter button transparente">Registro</a>
     </div>
     <!--.contenido-->
   </div>

@@ -264,6 +264,7 @@ $(function() {
   // Colorbox
 
   $('.invitado-info').colorbox({inline:true, width:"50%"});//Parte agregada por alma video2folder70
+  $('.btn_newsletter').colorbox({inline:true, width:"50%"});//Parte agregada por alma video2folder70
 
 });
 // PARTE EDITADA POR MELANIE
