@@ -677,6 +677,11 @@ div.contador{
   position: relative;
   height: 400px;
 }
+@media only screen and (max-width: 768px){
+  div.contador{
+    height: 535px;
+  }
+}
 div.contador::before{
   background-image: url(../img/bg-resumen.jpg);
   content: '';
@@ -709,6 +714,11 @@ p.numero{
 /**Tabla de precios**/
 section.precios{
   height: 660px;
+}
+@media only screen and (max-width: 768px){
+  section.precios{
+    height: 1600px;
+  }
 }
 ul.lista-precios > li{
   padding: 10px;
