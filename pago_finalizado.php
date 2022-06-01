@@ -33,7 +33,7 @@ require 'includes/paypal.php';
             echo "</div>";
 
             require_once('includes/funciones/bd_conexion.php');
-            $stmt = $conn->prepare('UPDATE registrados SET pagado = ? WHERE ID_registrado = ? ');
+            $stmt = $conn->prepare('UPDATE registrados SET pagado = ? WHERE ID_Resitrado = ? ');
             $pagado = 1;
             $stmt->bind_param('ii', $pagado, $id_pago);
             $stmt->execute();
