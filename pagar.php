@@ -35,16 +35,13 @@ if(isset($_POST['submit'])):
     $pedido = productos_json($boletos, $camisas, $etiquetas);
     $eventos = $_POST['registro'];
     $registro = eventos_json($eventos);
-
-    echo "<pre>";
-    var_dump($pedidoExtra);
-    echo "</pre>";
-
+    $pagado = 1;
     try{    //video8
         require_once('includes/funciones/bd_conexion.php');
-        $stmt = $conn->prepare("INSERT INTO registrados (nombre_registrado, apellido_registrado, email_registrado, fecha_registro, pases_articulos, talleres_registrados, regalo, total_pagado) VALUES (?,?,?,?,?,?,?,?)");
-        $stmt->bind_param("ssssssis", $nombre, $apellido, $email, $fecha, $pedido, $registro, $regalo, $total);
+        $stmt = $conn->prepare("INSERT INTO registrados (nombre_registrado, apellido_registrado, email_registrado, fecha_registro, pases_articulos, talleres_registrados, regalo, total_pagado, pagado) VALUES (?,?,?,?,?,?,?,?,?)");
+        $stmt->bind_param("ssssssisi", $nombre, $apellido, $email, $fecha, $pedido, $registro, $regalo, $total, $pagado);
         $stmt->execute();
+        $ID_registro = $stmt->insert_id;
         $stmt->close();
         $conn->close();
         //header('Location: validar_registro.php?exitoso=1');
@@ -52,6 +49,7 @@ if(isset($_POST['submit'])):
           $error = $e->getMessage();
     }
 endif;
+
 
 //Una nueva instancia de la clase de payer
 $compra = new Payer();
@@ -62,15 +60,17 @@ $compra->setPaymentMethod('paypal');
 
 $articulo = new Item();
 $articulo->setName($producto)
-    ->setCurrency('MXN')
+    ->setCurrency('USD')
     ->setQuantity(1)
     ->setPrice($precio);
 
 $i = 0;
+$arreglo_pedido = array(); //SaraEditadov6c78
 foreach($numero_boletos as $key => $value) {
     if( (int) $value['cantidad'] > 0 ) {
 
         ${"articulo$i"} = new Item();
+        $arreglo_pedido[] = ${"articulo$i"};    //SaraEditadov6c78
         ${"articulo$i"}->setName('Pase: ' . $key)
                  ->setCurrency('USD')
                  ->setQuantity( (int) $value['cantidad'])
@@ -82,7 +82,6 @@ foreach($numero_boletos as $key => $value) {
 
 foreach($pedidoExtra as $key => $value) {
     if( (int) $value['cantidad'] > 0 ) {
-
         if($key == 'camisas') {
             $precio = (float) $value['precio'] * .93;
         } else {
@@ -90,6 +89,7 @@ foreach($pedidoExtra as $key => $value) {
         }
 
         ${"articulo$i"} = new Item();
+        $arreglo_pedido[] = ${"articulo$i"};    //SaraEditadov6c78
         ${"articulo$i"}->setName('Extras: ' . $key)
                  ->setCurrency('USD')
                  ->setQuantity( (int) $value['cantidad'])
@@ -104,29 +104,29 @@ foreach($pedidoExtra as $key => $value) {
 
 //Instancia para la lista de articulos
 $listaArticulos = new ItemList();
-$listaArticulos->setItems(array($articulo));
+$listaArticulos->setItems($arreglo_pedido);
 
-/*
-//Se agregan los detalles de la cantidad a pagar
-$detalles = new Details();
-$detalles->setShipping($envio)
-         ->setSubtotal($precio);
+
+
 
 //Cantidad que se va a pagar
 $cantidad = new Amount();
-$cantidad->setCurrency('MXN')
-         ->setTotal($total)
-         ->setDetails($detalles);
+$cantidad->setCurrency('USD')
+         ->setTotal($total);
+        
 
 $transaccion = new Transaction();
 $transaccion->setAmount($cantidad)
             ->setItemList($listaArticulos)
-            ->setDescription('Pago')
-            ->setInvoiceNumber(uniqid());
+            ->setDescription('Pago GDLWEBCAMP')
+            ->setInvoiceNumber($ID_registro);
+
+// echo $transaccion->getInvoiceNumber();
+
 
 $redireccionar = new RedirectUrls();
-$redireccionar->setReturnUrl(URL_SITIO . "/pago_finalizado.php?exito=true")
-              ->setCancelUrl(URL_SITIO . "/pago_finalizado.php?exito=false");
+$redireccionar->setReturnUrl(URL_SITIO . "/pago_finalizado.php?&id_pago={$ID_registro}")
+              ->setCancelUrl(URL_SITIO . "/pago_finalizado.php?&id_pago={$ID_registro}");
 
 //Crear un pago 
 $pago = new Payment();
@@ -148,7 +148,7 @@ try {
 $aprobado = $pago->getApprovalLink();
 
 header("Location: {$aprobado}");
-*/
+
 // echo "<pre>";
 // var_dump($_POST);
 // echo "</pre>";
